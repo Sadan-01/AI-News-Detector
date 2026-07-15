@@ -1,0 +1,99 @@
+# Dependencies and Package Manager files
+node_modules/
+jspm_packages/
+web_modules/
+.npm
+.eslintcache
+.stylelintcache
+.oxlintrc.json
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+.next/
+.nuxt/
+.svelte-kit/
+
+# Python virtual environments & packages
+.venv/
+venv/
+ENV/
+env/
+python-local/
+bin/
+lib/
+include/
+share/
+pyvenv.cfg
+pip-selfcheck.json
+
+# Python caching & byte-code
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Machine Learning & Large Dataset files
+ml/dataset/
+ml/models/
+backend/model/
+*.h5
+*.keras
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.onnx
+*.pb
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+fake_news.db
+
+# Environments & secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+
+# IDEs, Editors & System files
+.idea/
+.vscode/
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp
+*.temp
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
