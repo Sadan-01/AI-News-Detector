@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import type { InternalAxiosRequestConfig } from "axios";
 import toast from "react-hot-toast";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
+const API_URL = import.meta.env.VITE_API_URL || "https://ai-news-detector-4.onrender.com/api";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -37,7 +37,7 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     const responseData = error.response?.data as any;
     const errorMessage = responseData?.message || responseData?.detail || "Something went wrong";
-    
+
     // Check status codes
     if (error.response) {
       switch (error.response.status) {
