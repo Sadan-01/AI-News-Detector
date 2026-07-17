@@ -1,3 +1,8 @@
+from transformers import dynamic_module_utils
+from transformers import dynamic_module_utils
+from transformers import dynamic_module_utils
+from transformers import dynamic_module_utils
+from transformers import dynamic_module_utils
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -70,7 +75,15 @@ class AIService:
             with torch.no_grad():
                 logits = model(**inputs).logits
             probabilities = torch.softmax(logits, dim=-1)[0]
+
             class_index = int(torch.argmax(probabilities).item())
+
+            print("========== MODEL DEBUG ==========")
+            print("Probabilities:", probabilities.tolist())
+            print("Class index:", class_index)
+            print("Labels:", model.config.id2label)
+            print("=================================")
+
             label = model.config.id2label.get(class_index, str(class_index))
             confidence = round(float(probabilities[class_index].item()) * 100, 2)
             return AIResult(prediction=label, confidence=confidence)
