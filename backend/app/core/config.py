@@ -20,7 +20,7 @@ class Settings:
     JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./fake_news.db")
-    CORS_ORIGINS: str = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173 , https://ai-news-detector-l044z1u8z-sadan-01s-projects.vercel.app,https://ai-news-detector.vercel.app")
+    CORS_ORIGINS: str = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
 
     def __init__(self) -> None:
