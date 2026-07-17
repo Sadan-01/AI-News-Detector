@@ -16,9 +16,9 @@ class Settings:
     PROJECT_NAME: str = os.getenv("PROJECT_NAME", "AI Fake News Detection System")
     API_VERSION: str = os.getenv("API_VERSION", "1.0.0")
     API_PREFIX: str = os.getenv("API_PREFIX", "/api").rstrip("/")
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "change-me-in-production")
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "BjHB-skx7U8kDKOIW4qlDS_hwe8S8B0h03L7jb2eQBM")
     JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "1440"))
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./fake_news.db")
     CORS_ORIGINS: str = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
@@ -36,7 +36,7 @@ class Settings:
             raise ValueError("API_PREFIX must start with '/'")
         if self.ACCESS_TOKEN_EXPIRE_MINUTES <= 0:
             raise ValueError("ACCESS_TOKEN_EXPIRE_MINUTES must be greater than zero")
-        if self.ENVIRONMENT.lower() == "production" and self.SECRET_KEY == "change-me-in-production":
+        if self.ENVIRONMENT.lower() == "production" and self.SECRET_KEY == "BjHB-skx7U8kDKOIW4qlDS_hwe8S8B0h03L7jb2eQBM":
             raise ValueError("SECRET_KEY must be configured in production")
         for origin in self.cors_origins:
             parsed = urlparse(origin)
