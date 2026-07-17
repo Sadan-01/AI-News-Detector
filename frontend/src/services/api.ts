@@ -2,7 +2,9 @@ import axios, { AxiosError } from "axios";
 import type { InternalAxiosRequestConfig } from "axios";
 import toast from "react-hot-toast";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://ai-news-detector-4.onrender.com/api";
+const API_URL =
+  import.meta.env.VITE_API_URL ??
+  "https://news-detector-sb51.onrender.com/api";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -64,9 +66,16 @@ api.interceptors.response.use(
           break;
         case 422:
           // Pydantic Validation Error
-          const details = responseData?.detail;
+          const details = responseData?.detail || responseData?.data;
           if (Array.isArray(details) && details.length > 0) {
-            toast.error(`Validation Error: ${details[0].msg || "Invalid input"}`);
+            const firstError = details[0];
+            const msg = firstError.msg || firstError.message || "Invalid input";
+            const loc = firstError.loc;
+            const field = Array.isArray(loc) && loc.length > 0
+              ? loc[loc.length - 1]
+              : "";
+            const prefix = field && field !== "body" ? `${field}: ` : "";
+            toast.error(`${prefix}${msg}`);
           } else {
             toast.error(errorMessage || "Validation error.");
           }

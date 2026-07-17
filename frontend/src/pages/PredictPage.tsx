@@ -46,7 +46,7 @@ export const PredictPage: React.FC = () => {
   ];
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: any;
     if (loadingStage > 0) {
       interval = setInterval(() => {
         setLoadingStage((prev) => {
@@ -135,7 +135,7 @@ export const PredictPage: React.FC = () => {
                     <p className="text-[10px] text-muted-foreground">Min 20 characters • Max 10,000 characters</p>
                   </div>
                 </div>
-                
+
                 {/* Editor Quick Commands */}
                 <div className="flex space-x-2">
                   <button
@@ -236,7 +236,7 @@ export const PredictPage: React.FC = () => {
                 >
                   {/* Glowing backdrop blobs */}
                   <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/25 rounded-full blur-2xl animate-spin-slow" />
-                  
+
                   {/* Scanning Laser Line */}
                   <div className="absolute left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent top-0 animate-[float_3s_ease-in-out_infinite]" />
 
@@ -269,13 +269,12 @@ export const PredictPage: React.FC = () => {
                   {/* Results Header */}
                   <div className="flex justify-between items-center pb-4 border-b border-border/40">
                     <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Inference Verdict</span>
-                    
+
                     <span
-                      className={`inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase ${
-                        isReal
+                      className={`inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase ${isReal
                           ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
                           : "bg-rose-500/10 text-rose-500 border border-rose-500/20"
-                      }`}
+                        }`}
                     >
                       {isReal ? (
                         <>
@@ -334,9 +333,8 @@ export const PredictPage: React.FC = () => {
                     </div>
                     <div className="h-2 w-full bg-muted rounded-full overflow-hidden border border-border/40">
                       <div
-                        className={`h-full transition-all duration-1000 ${
-                          isReal ? "bg-emerald-500" : "bg-rose-500"
-                        }`}
+                        className={`h-full transition-all duration-1000 ${isReal ? "bg-emerald-500" : "bg-rose-500"
+                          }`}
                         style={{ width: `${result.confidence}%` }}
                       />
                     </div>

@@ -47,7 +47,7 @@ coverage.xml
 # Machine Learning & Large Dataset files
 ml/dataset/
 ml/models/
-backend/model/
+backend/model/transformer_news/checkpoints/
 *.h5
 *.keras
 *.pt

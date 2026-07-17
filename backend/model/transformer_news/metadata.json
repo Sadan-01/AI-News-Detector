@@ -1,0 +1,12 @@
+{
+  "base_model": "distilbert-base-uncased",
+  "label_to_id": {
+    "Fake": 0,
+    "Real": 1
+  },
+  "id_to_label": {
+    "0": "Fake",
+    "1": "Real"
+  },
+  "max_length": 256
+}
